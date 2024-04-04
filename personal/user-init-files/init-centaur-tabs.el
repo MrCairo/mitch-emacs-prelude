@@ -8,9 +8,9 @@
 ;;; ==========================================================================
 
 (eval-when-compile (progn
-		      (defvar enable-centaur-tabs)
-		      (defvar centaur-tabs-style)
-		      (defvar centaur-tabs-set-icons))
+                      (defvar enable-centaur-tabs)
+                      (defvar centaur-tabs-style)
+                      (defvar centaur-tabs-set-icons))
    )
 
 (use-package centaur-tabs

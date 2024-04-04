@@ -6,7 +6,10 @@
 
 ;;; Code:
 
+(prelude-require-package 'general)
+
 (use-package general
+   :demand t
    :config
    (general-def prog-mode-map
       "C-c ]"  'indent-region

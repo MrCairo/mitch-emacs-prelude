@@ -18,7 +18,14 @@
 (eval-when-compile (defvar enable-dape))
 
 (use-package init-hydra-dape
-  :if (equal enable-dape t))
+    :if (equal enable-dape t))
+
+(defun mrf/activate-dape ()
+    (interactive)1
+    (message ">>> Activating DAPE.")
+    (use-package dape)
+    (dape-hydra/body)
+    )
 
 (use-package general)
 (use-package hydra
@@ -26,7 +33,7 @@
    (when enable-dape t
       (general-define-key
          :keymaps '(python-mode-map)
-         "C-c ."      'dape-hydra/body)
+         "C-c ."      'mrf/activate-dape)
       (mrf/hydra-define-dape)))
 
 (provide 'init-hydra)

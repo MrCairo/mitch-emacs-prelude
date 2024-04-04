@@ -167,6 +167,7 @@
 
 
 ;; Some alternate keys below....
+;;(global-set-key (kbd "C-c 1") 'use-small-display-font)
 (general-define-key
  "C-c 1" 'use-small-display-font)
 

@@ -1,4 +1,4 @@
-;;; init-minibuffer.el -- Configure the package
+;;; init-ivy-minibuffer.el -- Configure the package
 ;;;
 ;;; Commentary:
 ;;;
@@ -77,5 +77,5 @@
   (ivy-prescient-mode 1))
 
 
-(provide 'init-minibuffer)
-;;; init-minibuffer.el ends here.
+(provide 'init-ivy-minibuffer)
+;;; init-ivy-minibuffer.el ends here.

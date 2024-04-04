@@ -116,91 +116,91 @@ This OR `enable-anaconda' should be set to t but NOT BOTH!"
 ;;; Theming related
 
 (defcustom theme-list '("palenight-deeper-blue"
-                          "ef-symbiosis"
-                          "ef-maris-light"
-                          "ef-maris-dark"
-                          "ef-kassio"
-                          "sanityinc-tomorrow-bright"
-                          "ef-melissa-dark"
-                          "doom-palenight"
-                          "deeper-blue")
-   "My personal list of themes to cycle through indexed by `theme-selector'."
-   :group 'mrf-custom-theming
-   :type '(repeat string))
+                           "ef-symbiosis"
+                           "ef-maris-light"
+                           "ef-maris-dark"
+                           "ef-kassio"
+                           "sanityinc-tomorrow-bright"
+                           "ef-melissa-dark"
+                           "darktooth-dark"
+                           "deeper-blue")
+    "My personal list of themes to cycle through indexed by `theme-selector'."
+    :group 'mrf-custom-theming
+    :type '(repeat string))
 
 (defcustom theme-selector 0
-   "The index into the list of custom themes."
-   :group 'mrf-custom-theming
-   :type 'natnum)
+    "The index into the list of custom themes."
+    :group 'mrf-custom-theming
+    :type 'natnum)
 
 
 ;;; ------------------------------------------------------------
 ;;; Font related
 (defcustom default-font-family "Hack"
-  "The font family used as the default font."
-  :type 'string
-  :group 'mrf-custom-fonts
-  )
+    "The font family used as the default font."
+    :type 'string
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom mono-spaced-font-family "Hack"
-  "The font family used as the mono-spaced font."
-  :type 'string
-  :group 'mrf-custom-fonts
-  )
+    "The font family used as the mono-spaced font."
+    :type 'string
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom variable-pitch-font-family "SF Pro"
-  "The font family used as the default proportional font."
-  :type 'string
-  :group 'mrf-custom-fonts
-  )
+    "The font family used as the default proportional font."
+    :type 'string
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom small-mono-font-size 150
-  "The small font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The small font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom medium-mono-font-size 170
-  "The medium font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The medium font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom large-mono-font-size 190
-  "The large font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The large font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom x-large-mono-font-size 220
-  "The extra-large font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The extra-large font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom small-variable-font-size 170
-  "The small font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The small font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom medium-variable-font-size 190
-  "The small font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The small font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom large-variable-font-size 210
-  "The small font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The small font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (defcustom x-large-variable-font-size 240
-  "The small font size in pixels."
-  :type 'natnum
-  :group 'mrf-custom-fonts
-  )
+    "The small font size in pixels."
+    :type 'natnum
+    :group 'mrf-custom-fonts
+    )
 
 (provide 'init-customize)
 ;;; init-customize.el ends here.

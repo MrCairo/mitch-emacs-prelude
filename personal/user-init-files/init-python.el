@@ -31,14 +31,16 @@
 (defun mrf/load-python-file-hook ()
    "Hook to run when loading a python file."
    (python-mode)
-   (highlight-indentation-mode -1)
+   (highlight-indentation-mode 0)
    (display-fill-column-indicator-mode t))
 
 (use-package python
-   :defer t
-   :mode ("\\.py\\'" . mrf/load-python-file-hook)
-   :interpreter ("python" . python-mode))
-;; (add-to-list 'auto-mode-alist '("\\.py\\'" . mrf/load-python-file-hook))
+    :defer t
+    :mode ("\\.py\\'" . mrf/load-python-file-hook)
+    :config
+    (use-package blacken)
+    :interpreter ("python" . python-mode))
+
 (use-package blacken) ;Format Python file upon save.
 
 (if (boundp 'python-shell-completion-native-disabled-interpreters)
@@ -52,7 +54,8 @@
 ;;; [[IMPORTANT][IMPORTANT]] section above for possible issues when autopep8 is
 ;;; installed.
 (use-package py-autopep8
-   :hook ((python-mode) . py-autopep8-mode))
+    :after (python)
+    :hook ((python-mode) . py-autopep8-mode))
 
 ; Anaconda support
 ; ===========================================================================

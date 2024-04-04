@@ -24,7 +24,6 @@
 (setq read-process-output-max (* 4 1024 1024))
 (setq process-adaptive-read-buffering nil)
 
-
 ;;; use-package settings.
 (setq-default use-package-compute-statistics t
    use-package-verbose t

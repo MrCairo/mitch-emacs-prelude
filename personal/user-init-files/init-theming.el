@@ -23,6 +23,7 @@
 (use-package modus-themes)
 (use-package material-theme)
 (use-package color-theme-sanityinc-tomorrow )
+(use-package darktooth-theme :ensure t)
 
 ;; (use-package color-theme-modern
 ;;    :defer t)
@@ -122,14 +123,6 @@
       (mrf/org-font-setup))
    )
 
-  ;; (defface org-block-begin-line
-  ;;   '((t (:underline "#1D2C39" :foreground "#676E95" :background "#1D2C39")))
-  ;;   "Face used for the line delimiting the begin of source blocks.")
-
-  ;; (defface org-block-end-line
-  ;;   '((t (:overline "#1D2C39" :foreground "#676E95" :background "#1D2C39")))
-  ;;   "Face used for the line delimiting the end of source blocks.")
-
 ;; Function and code to cycle through some selcted themes.
   ;;; ==========================================================================
 
@@ -149,7 +142,6 @@
 (if loaded-theme
    (load-theme (intern loaded-theme) t)
   (mrf/load-theme-from-selector))
-
 
 ;; For terminal mode we choose Material theme
 (unless (display-graphic-p)

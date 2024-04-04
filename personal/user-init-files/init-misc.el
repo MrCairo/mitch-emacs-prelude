@@ -1,4 +1,4 @@
-;;; init-local.el -- Configure the package
+;;; init-misc.el -- Configure the package
 ;;;
 ;;; Commentary:
 ;;;
@@ -15,14 +15,28 @@
   (insert buffer-file-name))
 
 (defun mrf/insert-buffer-name-at-point ()
-  "Insert the buffer name only."
-  (interactive)
-  (insert (file-name-nondirectory (buffer-file-name))))
+    "Insert the buffer name only."
+    (interactive)
+    (insert (file-name-nondirectory (buffer-file-name))))
+
+(defun mrf/set-fill-column-interactively (num)
+    (interactive "nColumn: ")
+    (set-fill-column num))
 
 (general-define-key
- "C-c i f" 'mrf/insert-buffer-name-at-point
- "C-c i F" 'mrf/insert-buffer-full-name-at-point
- )
+    "C-c i f" 'mrf/insert-buffer-name-at-point
+    "C-c i F" 'mrf/insert-buffer-full-name-at-point )
+
+(general-create-definer my-custom-key-prefix
+    ;; Create a custom prefix
+    :prefix "C-s-m" )
+
+(my-custom-key-prefix
+    "S" 'smartparens-strict-mode
+    "d" 'dashboard-open
+    "|" 'global-display-fill-column-indicator-mode
+    "f c" 'mrf/set-fill-column-interactively
+    )
 
 ;;
 ;; Ctl-mouse to adjust/scale fonts will be disabled.
@@ -48,9 +62,20 @@
    "C-c q"      'quote-word
    "C-c |"      'display-fill-column-indicator-mode)
 
-(global-prettify-symbols-mode 1)
-
+(global-display-line-numbers-mode 1) ;; Line numbers appear everywhere
+(save-place-mode 1)                  ;; Remember where we were last editing a file.
+(savehist-mode t)
+(show-paren-mode 1)
+(tool-bar-mode -1)                   ;; Hide the toolbar
+(global-prettify-symbols-mode 1)     ;; Display pretty symbols (i.e. λ = lambda)
+(column-number-mode)
 (prelude-swap-meta-and-super)
+
+(diminish 'projectile-mode "Proj")
+
+(setq-default initial-scratch-message
+    (concat ";; Hello, World and Happy hacking, "
+        user-login-name "\n;; Press C-s-o to open the Dashboard\n\n"))
 
 ;;; ------------------------------------------------------------------------
 ;; The following is a list of major mode-hooks variables that are set so that
@@ -73,5 +98,5 @@
                   vterm-mode-hook))
    (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(provide 'init-local)
-;;; init-local.el ends here.
+(provide 'init-misc)
+;;; init-misc.el ends here.
