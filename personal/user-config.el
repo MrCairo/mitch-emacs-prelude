@@ -7,19 +7,23 @@
 ;;; Code:
 ;;;
 
-(eval-when-compile (progn
-                      (defvar enable-gb-dev)
-                      (defvar enable-dape)
-                      (defvar enable-ts)
-                      (defvar enable-vundo)
-                      (defvar enable-centaur-tabs)
-                      (defvar enable-elpy)
-                      ))
+(require 'use-package)
+
+(eval-when-compile
+    (progn
+        (defvar enable-gb-dev)
+        (defvar enable-dape)
+        (defvar enable-ts)
+        (defvar enable-vundo)
+        (defvar enable-centaur-tabs)
+        (defvar enable-ivy-counsel-swiper)
+        (defvar enable-elpy)))
 
 ;;
 ;; When installing from scratch enable this variable to t, otherwise set to
 ;; nil.
 (setq use-package-always-ensure nil)
+(setq use-package-always-defer nil)
 ;;
 ;; Keep track of the original config (.emacs.d directory).
 ;; The actual `user-emacs-diectory' will be changed so that customized
@@ -37,14 +41,15 @@
 (use-package init-defaults)
 (use-package init-auto-package-update)
 (use-package init-quelpa)
+(use-package dash)
 
 ;; -------------------------------------------------------------------------
 ;; Feature packages
 ;;
 (use-package init-undo)
 (use-package init-frame-and-fonts)
-;; (use-package init-counsel)
-;; (use-package init-ivy-minibuffer)
+(use-package init-ivy-minibuffer
+    :if (equal enable-ivy-counsel-swiper t))
 (use-package init-theming)
 (use-package init-magit)
 ;; (use-package init-yasnippet)

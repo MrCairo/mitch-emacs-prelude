@@ -124,11 +124,10 @@
                       :height mrf/default-variable-font-size
                       :weight 'medium))
 
-(mrf/update-face-attribute)
-(unless (daemonp)
-  (mrf/frame-recenter)
-  )
-
+(when (display-graphic-p)
+    (mrf/update-face-attribute)
+    (unless (daemonp)
+        (mrf/frame-recenter)))
 
 (defvar mrf/font-size-slot 1)
 
@@ -168,17 +167,18 @@
 
 ;; Some alternate keys below....
 ;;(global-set-key (kbd "C-c 1") 'use-small-display-font)
-(general-define-key
- "C-c 1" 'use-small-display-font)
+(when (display-graphic-p)
+    (general-define-key
+        "C-c 1" 'use-small-display-font)
 
-(general-define-key
- "C-c 2" 'use-medium-display-font)
+    (general-define-key
+        "C-c 2" 'use-medium-display-font)
 
-(general-define-key
- "C-c 3" 'use-large-display-font)
+    (general-define-key
+        "C-c 3" 'use-large-display-font)
 
-(general-define-key
- "C-c 4" 'use-x-large-display-font)
+    (general-define-key
+        "C-c 4" 'use-x-large-display-font))
 
 
 (defun mrf/set-frame-font (slot)
@@ -211,8 +211,8 @@
   (mrf/frame-recenter)
   )
 
-(add-hook 'after-init-hook 'use-medium-display-font)
-
+(when (display-graphic-p)
+    (add-hook 'after-init-hook 'use-medium-display-font))
 
 (provide 'init-frame-and-fonts)
 ;;; init-frame-and-fonts.el ends here.

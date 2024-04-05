@@ -14,16 +14,16 @@
    )
 
 (use-package centaur-tabs
-   :if (equal enable-centaur-tabs t)
-   :init
-   ;; Set the style to rounded with icons (setq centaur-tabs-style "bar")
-   (setq centaur-tabs-style "bar")
-   (setq centaur-tabs-set-icons t)
-   (setq centaur-tabs-set-modified-marker t)
-   :bind (("C-c <" . centaur-tabs-backward)
-            ("C-c >" . centaur-tabs-forward))
-   :config ;; Enable centaur-tabs
-   (centaur-tabs-mode t))
+    :if enable-centaur-tabs
+    :init
+    ;; Set the style to rounded with icons (setq centaur-tabs-style "bar")
+    (setq centaur-tabs-style "bar")
+    (setq centaur-tabs-set-icons t)
+    (setq centaur-tabs-set-modified-marker t)
+    :bind (("C-c <" . centaur-tabs-backward)
+              ("C-c >" . centaur-tabs-forward))
+    :config ;; Enable centaur-tabs
+    (centaur-tabs-mode t))
 
 (provide 'init-centaur-tabs)
 ;;; init-centaur-tabs.el ends here.

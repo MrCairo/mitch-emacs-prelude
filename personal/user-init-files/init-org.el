@@ -16,17 +16,21 @@
 (defun mrf/org-set-src-colors ()
     (defface org-block-begin-line
         '((t (:underline "#1D2C39" :foreground "#676E95" :background "#1D2C39")))
-        "Face used for the line delimiting the begin of source blocks.")
+        "Face used for the line delimiting the begin of source blocks."
+        :group 'mrf-custom-theming)
 
     (defface org-inline-src-block
         '((t (:background "#32302F")))
-        "Face used for the source block background.")
+        "Face used for the source block background."
+        :group 'mrf-custom-theming)
 
     (defface org-block-end-line
         '((t (:overline "#1D2C39" :foreground "#676E95" :background "#1D2C39")))
-        "Face used for the line delimiting the end of source blocks.")
+        "Face used for the line delimiting the end of source blocks."
+        :group 'mrf-custom-theming)
     )
 
+(require 'general)
 (use-package org
     :defer t
     :commands (org-capture org-agenda)

@@ -143,7 +143,7 @@
    (load-theme (intern loaded-theme) t)
   (mrf/load-theme-from-selector))
 
-;; For terminal mode we choose Material theme
+;; For terminal mode we choose Material theme First
 (unless (display-graphic-p)
    (load-theme 'material t))
 

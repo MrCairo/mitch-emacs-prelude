@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(prelude-require-package 'general)
+(require 'general)
 
 (use-package general
    :demand t

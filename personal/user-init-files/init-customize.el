@@ -41,9 +41,15 @@ Otherwise, the `dashboard' will be available but in the buffer
 *dashboard*."
   :type 'boolean
   :group 'mrf-custom
-   )
+    )
 
 ;;; Feature Switches
+(defcustom enable-ivy-counsel-swiper t
+    "If set to t then Ivy, Counsel, and Swiper."
+    :type 'boolean
+    :group 'mrf-custom)
+
+
 (defcustom enable-gb-dev nil
    "If set to t, the z80-mode and other GameBoy related packages
 will be enabled."
@@ -123,6 +129,7 @@ This OR `enable-anaconda' should be set to t but NOT BOTH!"
                            "sanityinc-tomorrow-bright"
                            "ef-melissa-dark"
                            "darktooth-dark"
+                           "material"
                            "deeper-blue")
     "My personal list of themes to cycle through indexed by `theme-selector'."
     :group 'mrf-custom-theming

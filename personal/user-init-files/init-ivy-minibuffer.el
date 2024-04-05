@@ -15,38 +15,40 @@
 ;;; ------------------------------------------------------------------------
 ;;; Swiper and IVY mode
 (use-package ivy
-   :diminish
-   :bind (("C-s" . swiper)
-          :map ivy-minibuffer-map
-          ;;; ("TAB" . ivy-alt-done)
-          ("C-l" . ivy-alt-done)
-          ("C-j" . ivy-next-line)
-          ("C-k" . ivy-previous-line)
-          :map ivy-switch-buffer-map
-          ("C-k" . ivy-previous-line)
-          ("C-l" . ivy-done)
-          ("C-d" . ivy-switch-buffer-kill)
-          :map ivy-reverse-i-search-map
-          ("C-k" . ivy-previous-line)
-          ("C-d" . ivy-reverse-i-search-kill))
-   :custom (ivy-use-virtual-buffers t)
-   :config
-   (ivy-mode 1))
+    :ensure t
+    :diminish
+    :bind (("C-s" . swiper)
+              :map ivy-minibuffer-map
+              ("TAB" . ivy-alt-done)
+              ("C-l" . ivy-alt-done)
+              ("C-j" . ivy-next-line)
+              ("C-k" . ivy-previous-line)
+              :map ivy-switch-buffer-map
+              ("C-k" . ivy-previous-line)
+              ("C-l" . ivy-done)
+              ("C-d" . ivy-switch-buffer-kill)
+              :map ivy-reverse-i-search-map
+              ("C-k" . ivy-previous-line)
+              ("C-d" . ivy-reverse-i-search-kill))
+    :custom
+    (ivy-use-virtual-buffers t)
+    :config
+    (ivy-mode 1))
 
 (use-package ivy-rich
-   :defer t
-   :after ivy
-   :init
-   (ivy-rich-mode 1))
+    :ensure t
+    :after ivy
+    :init
+    (ivy-rich-mode 1))
 
 (use-package ivy-yasnippet
-   :defer t)
+    :defer t)
 
 ;;; Swiper is an alternative to isearch that uses Ivy to show an overview of all
 ;;; matches.
 
 (use-package swiper
-   :after ivy)
+    :ensure t)
 
 ;;; ~ivy-mode~ ensures that any Emacs command using completing-read-function
 ;;; uses ivy for completion.  Counsel takes this further, providing versions of
@@ -55,26 +57,27 @@
 ;;; will move you to the parent directory.
 
 (use-package counsel
-   :diminish
-   :defer t
-   :bind (("C-M-j" . 'counsel-switch-buffer)
-            :map minibuffer-local-map
-            ("C-r" . 'counsel-minibuffer-history))
-   :custom
-   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
-   :config
-   (counsel-mode 1))
+    :diminish
+    :after ivy
+    :bind (("C-M-j" . 'counsel-switch-buffer)
+              :map minibuffer-local-map
+              ("C-r" . 'counsel-minibuffer-history))
+    :custom
+    (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+    :config
+    (counsel-mode 1))
 
 ;;; ~prescient.el~ is a library which sorts and filters lists of candidates,
 ;;; such as appear when you use a package like =Ivy= or =Company=.
 
 (use-package ivy-prescient
-  :after counsel
-  :custom
-  (ivy-prescient-enable-filtering nil)
-  :config
-  (prescient-persist-mode 1)
-  (ivy-prescient-mode 1))
+    :after (ivy swiper)
+    :ensure t
+    :custom
+    (ivy-prescient-enable-filtering nil)
+    :config
+    (prescient-persist-mode 1)
+    (ivy-prescient-mode 1))
 
 
 (provide 'init-ivy-minibuffer)

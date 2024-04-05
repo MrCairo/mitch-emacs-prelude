@@ -9,6 +9,8 @@
 ;;; Functions to insert the buffer file name at the current cursor position
 ;;;
 
+(require 'general)
+
 (defun mrf/insert-buffer-full-name-at-point ()
   "Insert the buffer name including the file path."
   (interactive)
@@ -20,16 +22,16 @@
     (insert (file-name-nondirectory (buffer-file-name))))
 
 (defun mrf/set-fill-column-interactively (num)
+    "Asks for the fill column."
     (interactive "nColumn: ")
     (set-fill-column num))
 
 (general-define-key
     "C-c i f" 'mrf/insert-buffer-name-at-point
-    "C-c i F" 'mrf/insert-buffer-full-name-at-point )
+    "C-c i F" 'mrf/insert-buffer-full-name-at-point)
 
 (general-create-definer my-custom-key-prefix
-    ;; Create a custom prefix
-    :prefix "C-s-m" )
+    :prefix "C-c RET")
 
 (my-custom-key-prefix
     "S" 'smartparens-strict-mode
@@ -62,7 +64,7 @@
    "C-c q"      'quote-word
    "C-c |"      'display-fill-column-indicator-mode)
 
-(global-display-line-numbers-mode 1) ;; Line numbers appear everywhere
+;; (global-display-line-numbers-mode 1) ;; Line numbers appear everywhere
 (save-place-mode 1)                  ;; Remember where we were last editing a file.
 (savehist-mode t)
 (show-paren-mode 1)
@@ -70,12 +72,13 @@
 (global-prettify-symbols-mode 1)     ;; Display pretty symbols (i.e. λ = lambda)
 (column-number-mode)
 (prelude-swap-meta-and-super)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (diminish 'projectile-mode "Proj")
 
 (setq-default initial-scratch-message
     (concat ";; Hello, World and Happy hacking, "
-        user-login-name "\n;; Press C-s-o to open the Dashboard\n\n"))
+        user-login-name "\n;; Press C-c C-m to open the Mitch Menu\n\n"))
 
 ;;; ------------------------------------------------------------------------
 ;; The following is a list of major mode-hooks variables that are set so that
@@ -87,15 +90,16 @@
 ;; Line #'s appear everywhere
 ;; ... except for when in these modes
 (dolist (mode '(dashboard-mode-hook
-                  eshell-mode-hook
-                  eww-mode-hook
-                  help-mode-hook
-                  org-mode-hook
-                  shell-mode-hook
-                  term-mode-hook
-                  vterm-mode-hook
-                  treemacs-mode-hook
-                  vterm-mode-hook))
+                   ielm-mode-hook
+                   eshell-mode-hook
+                   eww-mode-hook
+                   help-mode-hook
+                   org-mode-hook
+                   shell-mode-hook
+                   term-mode-hook
+                   vterm-mode-hook
+                   treemacs-mode-hook
+                   vterm-mode-hook))
    (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (provide 'init-misc)
